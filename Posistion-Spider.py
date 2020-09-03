@@ -19,6 +19,7 @@ import re
 starttime = datetime.datetime.now()
 
 url = r'http://www.lagou.com/jobs/positionAjax.json?city=%E5%8C%97%E4%BA%AC'
+
 keyword = raw_input('请输入您所需要查找的关键词：')
 #获取职位的查询页面，（参数分别为网址，当前页面数，关键词）
 def get_page(url, pn, keyword):
@@ -44,7 +45,7 @@ def get_page(url, pn, keyword):
     page = page.decode('utf-8')
     return page
 
-#获取所需的岗位ID，每一个招聘页面详情都有一个所属的ID索引
+#获取所需的岗位ID
 def read_id(page):
     tag = 'positionId'
     page_json = json.loads(page)
